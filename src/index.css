@@ -2,4 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles can go here */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+			@apply bg-brand-900 text-neutral-100 font-body;
+			background-image: radial-gradient(circle at 20% 25%, rgba(255,106,31,0.08), transparent 55%),
+				radial-gradient(circle at 80% 70%, rgba(255,138,60,0.07), transparent 60%),
+				linear-gradient(to bottom,#141718,#161819 40%,#141718);
+		background-attachment: fixed;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-display tracking-tight text-balance;
+	}
+	::selection {
+		background: rgba(255,106,31,0.35);
+	}
+}
+
+@layer components {
+	.btn-primary {
+		@apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-flame-500 to-ember-400 px-6 py-3 text-sm font-semibold text-white shadow-soft hover:shadow-glow transition-all duration-300;
+	}
+	.section-wrapper {
+		@apply relative py-20 md:py-28; 
+	}
+	.section-heading {
+		@apply text-3xl md:text-4xl font-bold mb-8 text-gradient;
+	}
+}
+
+@layer utilities {
+	.text-balance { text-wrap: balance; }
+}
